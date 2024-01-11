@@ -72,11 +72,113 @@ If you'd like to contribute to AlgiersDocSource, please follow our [contribution
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+----------------------------------------
+```markdown
+# Algiers Doc Source Backend
 
----
+Welcome to Algiers Doc Source Backend! This backend application provides endpoints for managing "interfaces" and "linedPapers" data.
 
-Happy coding!
+## Getting Started
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Set up your MongoDB connection by updating the `.env` file or using the default connection URI.
+
+3. Run the server:
+   ```bash
+   npm start
+   ```
+
+The server will be running on http://localhost:3000 by default.
+
+## API Endpoints
+
+### Interfaces
+
+#### Create a new interface
+- **Endpoint**: `POST /interfaces/create`
+- **Request Body**: JSON data for the new interface
+  ```json
+  {
+    "title": "Sample Interface",
+    "description": "This is a sample interface.",
+    "university": "Sample University",
+    "language": "English",
+    "downloadLinks": {
+      "word": "https://example.com/word-file.docx",
+      "pdf": "https://example.com/pdf-file.pdf"
+    },
+    "image": "https://example.com/image.jpg"
+  }
+  ```
+- **Response**: JSON data for the created interface
+
+#### Get all interfaces
+- **Endpoint**: `GET /interfaces`
+- **Response**: JSON array containing all interfaces
+
+#### Get interface by ID
+- **Endpoint**: `GET /interfaces/:id`
+- **Response**: JSON data for the specified interface
+
+#### Update interface by ID
+- **Endpoint**: `PUT /interfaces/update/:id`
+- **Request Body**: JSON data with fields to update
+- **Response**: JSON data for the updated interface
+
+#### Delete interface by ID
+- **Endpoint**: `DELETE /interfaces/:id`
+- **Response**: JSON data for the deleted interface
+
+### Lined Papers
+
+#### Create a new lined paper
+- **Endpoint**: `POST /lined-papers/create`
+- **Request Body**: JSON data for the new lined paper
+  ```json
+  {
+    "title": "Sample Lined Paper",
+    "description": "This is a sample lined paper.",
+    "category": "Sample Category",
+    "downloadLink": {
+      "word": "https://example.com/word-file.docx",
+      "pdf": "https://example.com/pdf-file.pdf"
+    },
+    "image": "https://example.com/image.jpg"
+  }
+  ```
+- **Response**: JSON data for the created lined paper
+
+#### Get all lined papers
+- **Endpoint**: `GET /lined-papers`
+- **Response**: JSON array containing all lined papers
+
+#### Get lined paper by ID
+- **Endpoint**: `GET /lined-papers/:id`
+- **Response**: JSON data for the specified lined paper
+
+#### Update lined paper by ID
+- **Endpoint**: `PUT /lined-papers/update/:id`
+- **Request Body**: JSON data with fields to update
+- **Response**: JSON data for the updated lined paper
+
+#### Delete lined paper by ID
+- **Endpoint**: `DELETE /lined-papers/:id`
+- **Response**: JSON data for the deleted lined paper
+
+## Roadmap for Testing
+
+1. Use a tool like [Postman](https://www.postman.com/) to send requests to the provided endpoints.
+2. Test creating new interfaces and lined papers using the respective `POST` endpoints.
+3. Retrieve all interfaces and lined papers using the `GET` endpoints.
+4. Retrieve specific interfaces and lined papers using the `GET` endpoints with specific IDs.
+5. Update existing interfaces and lined papers using the respective `PUT` endpoints.
+6. Delete existing interfaces and lined papers using the respective `DELETE` endpoints.
+
+Feel free to explore and test different scenarios with these endpoints!
 ```
 
-This README template provides a comprehensive guide on how to set up, run, and understand the project structure. Modify it to include any specific details relevant to your project.
+You can include this README.md file in the root of your project and update it as needed. It provides a basic structure with explanations and examples to help users understand and use your backend API.
