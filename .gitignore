@@ -1,0 +1,27 @@
+# Node.js
+node_modules/
+
+# Compiled binary addons (if you're working with Node.js addons)
+/build/Release
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# dotenv environment variables file
+.env
+
+# VSCode
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# npm
+*.iml
+
+# Yarn
+.yarn/
+yarn-error.log
