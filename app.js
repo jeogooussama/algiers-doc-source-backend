@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const createError = require('http-errors'); // Add this line
+const createError = require('http-errors');
 require('dotenv').config();
 
 const connectToDatabase = require('./config/db');
@@ -36,8 +36,27 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   console.error(err.stack);
 
+  let errorMessage;
+
   if (err instanceof createError.HttpError) {
-    res.status(err.status).json({ error: err.message });
+    switch (err.status) {
+      case 400:
+        errorMessage = 'Bad Request';
+        break;
+      case 401:
+        errorMessage = 'Unauthorized';
+        break;
+      case 403:
+        errorMessage = 'Forbidden';
+        break;
+      case 404:
+        errorMessage = 'Not Found';
+        break;
+      default:
+        errorMessage = 'Internal Server Error';
+        break;
+    }
+    res.status(err.status).json({ error: errorMessage });
   } else {
     res.status(500).json({ error: 'Internal Server Error' });
   }
