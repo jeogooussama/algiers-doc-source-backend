@@ -11,7 +11,7 @@ exports.createLinedPaper = async (req, res, next) => {
   } catch (error) {
     console.error(error);
     // Forward the error to the error-handling middleware
-    next(createError(500, 'Internal Server Error'));
+    next(createError(500, "Internal Server Error"));
   }
 };
 

@@ -1,4 +1,3 @@
-// models/interfaceModel.js
 const mongoose = require("mongoose");
 
 const interfaceSchema = new mongoose.Schema({
@@ -25,6 +24,10 @@ const interfaceSchema = new mongoose.Schema({
   },
   image: {
     type: String,
+  },
+  type: {
+    type: String,
+    default: 'interface',
   },
 });
 

@@ -1,4 +1,3 @@
-// models/linedPaperModel.js
 const mongoose = require("mongoose");
 
 const linedPaperSchema = new mongoose.Schema({
@@ -10,19 +9,21 @@ const linedPaperSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  category: {
-    type: String,
-    required: "true",
-  },
-  downloadLink: {
-    type: {
-      word: String,
-      pdf: String,
+  downloadLinks: {
+    word: {
+      type: String,
+      required: true,
     },
-    required: true,
+    pdf: {
+      type: String,
+    },
   },
   image: {
     type: String,
+  },
+  type: {
+    type: String,
+    default: 'linedPaper',
   },
 });
 

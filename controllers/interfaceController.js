@@ -66,7 +66,7 @@ exports.updateInterfaceById = async (req, res, next) => {
 // Delete interface by ID
 exports.deleteInterfaceById = async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const { id } = req.params.id;
     const deletedInterface = await Interface.findByIdAndDelete(id);
     if (!deletedInterface) {
       // Forward a 404 error to the error-handling middleware
