@@ -67,7 +67,7 @@ exports.updateLinedPaperById = async (req, res, next) => {
 exports.deleteLinedPaperById = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const deletedLinedPaper = await LinedPaper.findByIdAndDelete(id);
+    const deletedLinedPaper = await LinedPaper.findOneAndDelete(id);
     if (!deletedLinedPaper) {
       // Forward a 404 error to the error-handling middleware
       return next(createError(404, 'Lined paper not found'));

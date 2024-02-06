@@ -9,6 +9,10 @@ const interfaceSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  city: {
+    type: String,
+    required: true,
+  },
   university: {
     type: String,
   },
@@ -27,7 +31,7 @@ const interfaceSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    default: 'interface',
+    default: "interface",
   },
 });
 
