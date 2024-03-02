@@ -1,6 +1,6 @@
 // controllers/interfaceController.js
 const Interface = require("../models/interfaceModel");
-const createError = require('http-errors');
+const createError = require("http-errors");
 
 // Create a new interface
 exports.createInterface = async (req, res, next) => {
@@ -11,7 +11,7 @@ exports.createInterface = async (req, res, next) => {
   } catch (error) {
     console.error(error);
     // Forward the error to the error-handling middleware
-    next(createError(500, 'Internal Server Error'));
+    next(createError(500, "Internal Server Error"));
   }
 };
 
@@ -23,7 +23,7 @@ exports.getAllInterfaces = async (req, res, next) => {
   } catch (error) {
     console.error(error);
     // Forward the error to the error-handling middleware
-    next(createError(500, 'Internal Server Error'));
+    next(createError(500, "Internal Server Error"));
   }
 };
 
@@ -34,13 +34,13 @@ exports.getInterfaceById = async (req, res, next) => {
     const interfaceData = await Interface.findById(id);
     if (!interfaceData) {
       // Forward a 404 error to the error-handling middleware
-      return next(createError(404, 'Interface not found'));
+      return next(createError(404, "Interface not found"));
     }
     res.status(200).json(interfaceData);
   } catch (error) {
     console.error(error);
     // Forward the error to the error-handling middleware
-    next(createError(500, 'Internal Server Error'));
+    next(createError(500, "Internal Server Error"));
   }
 };
 
@@ -53,29 +53,29 @@ exports.updateInterfaceById = async (req, res, next) => {
     });
     if (!updatedInterface) {
       // Forward a 404 error to the error-handling middleware
-      return next(createError(404, 'Interface not found'));
+      return next(createError(404, "Interface not found"));
     }
     res.status(200).json(updatedInterface);
   } catch (error) {
     console.error(error);
     // Forward the error to the error-handling middleware
-    next(createError(500, 'Internal Server Error'));
+    next(createError(500, "Internal Server Error"));
   }
 };
 
 // Delete interface by ID
 exports.deleteInterfaceById = async (req, res, next) => {
   try {
-    const { id } = req.params.id;
-    const deletedInterface = await Interface.findOneAndDelete(id);
+    const id = req.params.id;
+    const deletedInterface = await Interface.findByIdAndDelete(id);
     if (!deletedInterface) {
       // Forward a 404 error to the error-handling middleware
-      return next(createError(404, 'Interface not found'));
+      return next(createError(404, "Interface not found"));
     }
-    res.status(200).json(deletedInterface);
+    res.status(200).json({msg:"the intefce removed"});
   } catch (error) {
     console.error(error);
     // Forward the error to the error-handling middleware
-    next(createError(500, 'Internal Server Error'));
+    next(createError(500, "Internal Server Error"));
   }
 };
