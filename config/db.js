@@ -4,7 +4,7 @@ const connectToDatabase = async () => {
   try {
     const dbUri =
       process.env.MONGODB_URI ||
-      "mongodb+srv://admin:admin@algeraindocs.glgtmgk.mongodb.net/?retryWrites=true&w=majority&appName=AlgerainDocs";
+      "mongodb+srv://admin:admin@algeraindocs.glgtmgk.mongodb.net/?Files=true&w=majority&appName=AlgerainDocs";
     await mongoose.connect(dbUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
